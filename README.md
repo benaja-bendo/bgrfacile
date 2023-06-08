@@ -1,6 +1,6 @@
 <p style="text-align: center">
 <a href="https://bgrfacile.com" target="_blank">
-<img src="/public/assets/images/logo_bgrfacile.svg" width="400" alt="Bgrfacile Logo" title="bgrfacile">
+<img src="D:\LAB\_PROD\bgrfacile\lab\bgrfacile\public\assets\images\logo_bgrfacile.svg" width="400" alt="Bgrfacile Logo" title="bgrfacile">
 </a>
 </p>
 
@@ -10,63 +10,19 @@ Bgrfacile est une Plateforme numérique qui a pour but de faciliter l'enseigneme
 la gestion quotidienne des établissement scolaire. Pour ce faire, elle met à la disposition des enseignants et des
 élèves des outils numériques qui leur permettent de travailler ensemble, de communiquer et de partager des informations.
 
-- site web: [https://bgrfacile.com](https://bgrfacile.com).
+- site web officiel: [https://bgrfacile.com](https://bgrfacile.com).
+- application pour les écoles: [https://ecole.bgrfacile.com](https://ecole.bgrfacile.com).
 - application
   mobile: [https://play.google.com/store/apps/details?id=com.bgrfacile](https://play.google.com/store/apps/details?id=com.bgrfacile).
 
-Borderaux Géneral de Renseignement Facile (BGRFACILE) est une plateforme numérique qui a pour but de faciliter.
+Borderaux Géneral de Renseignement Facile (BGRFACILE) est la première plateforme numérique qui permet aux écoles de
+gérer
+les inscriptions, les paiements, les notes, les absences, les retards, les devoirs, les examens, les emplois du temps,
+les cours, les communications, les événements, les annonces, les documents, les ressources, les utilisateurs, etc.
 
-## Contributeur
+## Contributeurs
 
 - [Benaja Bendo](https://github.com/benaja-bendo)
-
-## Liste des fonctionnalités
-
-- [x] Authentification
-- [x] Gestion des utilisateurs
-- [x] Gestion des établissements
-- [x] Gestion des classes
-- [x] Gestion des matières
-- [x] Gestion des cours
-- [x] Gestion des devoirs
-- [x] Gestion des notes
-- [x] Gestion des absences
-- [x] Gestion des paiements
-- [x] Gestion des évènements
-- [x] Gestion des annonces
-- [x] Gestion des messages
-- [x] Gestion des notifications
-- [x] Gestion des paramètres
-- [x] Gestion des statistiques
-- [x] Gestion des rôles et permissions
-- [x] Gestion des abonnements
-
-## Mise en place du projet
-
-### Prérequis
-
-- PHP 8.1^
-- Composer 2.1.9^
-- MySQL 8.0^
-- Node 14.17.6^
-- NPM 6.14.15^
-- Redis 6.2.5^
-
-### Installation
-
-- Cloner le projet sur votre machine locale `git clone ...`.
-- Se placer dans le dossier du projet `cd bgrfacile`.
-- Lancer la commande `composer install` pour installer les dépendances PHP.
-- Lancer la commande `npm install`.
-- Lancer la commande `npm run build`.
-- Copier le fichier `.env.example` et le renommer en `.env`.
-- Modifier les variables d'environnement dans le fichier `.env` (base de données, mail, etc.) selon votre configuration.
-- Lancer la commande `php artisan migrate` pour créer les tables dans la base de données.
-- Lancer la commande `php artisan db:seed` pour remplir les tables avec des données de test.
-- Lancer la commande `php artisan storage:link` pour créer le lien symbolique vers le dossier de stockage.
-- Lancer la commande `php artisan passport:install` pour installer les clés de chiffrement de passport.
-- Lancer la commande `php artisan queue:work` pour lancer le worker de queue.
-- Lancer la commande `php artisan serve` pour lancer le serveur de développement.
 
 ## Model économique
 
@@ -118,17 +74,134 @@ En plus du contenu préenregistré, vous pouvez proposer des sessions de formati
 séances de coaching payantes. Les utilisateurs peuvent payer pour participer à ces sessions interactives dispensées par
 des experts ou des instructeurs qualifiés.
 
-## Services du projet
+## Mise en place du projet
 
-le site web est composé de plusieurs services:
+### Prérequis
 
-### bibliothèque de cours
+- PHP 8.1^
+- Composer 2.1.9^
+- MySQL 8.0^
+- Node 14.17.6^
+- NPM 6.14.15^
+- Redis 6.2.5^
 
-### bibliothèque de devoirs (exercices) <!--- à revoir pas obligatoire -->
+### Installation
 
-### repertoire des établissements
+- Cloner le projet sur votre machine locale `git clone ...`.
+- Se placer dans le dossier du projet `cd bgrfacile`.
+- Lancer la commande `composer install` pour installer les dépendances PHP.
+- Lancer la commande `npm install`.
+- Lancer la commande `npm run build`.
+- Copier le fichier `.env.example` et le renommer en `.env`.
+- Modifier les variables d'environnement dans le fichier `.env` (base de données, mail, etc.) selon votre configuration.
+- Lancer la commande `php artisan migrate` pour créer les tables dans la base de données.
+- Lancer la commande `php artisan db:seed` pour remplir les tables avec des données de test.
+- Lancer la commande `php artisan storage:link` pour créer le lien symbolique vers le dossier de stockage.
+- Lancer la commande `php artisan passport:install` pour installer les clés de chiffrement de passport.
+- Lancer la commande `php artisan queue:work` pour lancer le worker de queue.
+- Lancer la commande `php artisan serve` pour lancer le serveur de développement.
 
-### trouvez un professeur particulier
+## Liste des fonctionnalités
+
+### site web bgrfacile (libre pour tous)
+
+Le site posséde les fonctionnalités de base suivantes:
+
+- Tableau de bord
+  - [x] Authentification
+  - [x] Gestion des utilisateurs
+  - [x] Gestion des établissements
+  - [x] Gestion des paiements
+  - [x] Gestion des paramètres
+  - [x] Gestion des statistiques
+  - [x] Gestion des rôles et permissions
+  - [x] Gestion des abonnements
+
+- bibliothèque de cours
+    - recherche d'un cours
+    - liste des cours
+    - liste des cours par matière
+    - liste des cours par niveau
+    - liste des cours par filière
+    - liste des cours par option
+    - liste des cours par langue
+    - liste des cours par type d'enseignement
+    - liste des cours par type d'encadrement
+    - liste des cours par type de document
+    - liste des cours par type de fichier
+    - liste des cours par type de support
+    - liste des cours par type de ressource
+    - liste des cours par type de source
+    - liste des cours par type de contenu
+
+- bibliothèque de devoirs (exercices)
+    - recherche d'un devoir
+    - liste des devoirs
+    - liste des devoirs par matière
+    - liste des devoirs par niveau
+    - liste des devoirs par filière
+    - liste des devoirs par option
+    - liste des devoirs par langue
+    - liste des devoirs par type d'enseignement
+    - liste des devoirs par type d'encadrement
+    - liste des devoirs par type de document
+    - liste des devoirs par type de fichier
+    - liste des devoirs par type de support
+    - liste des devoirs par type de ressource
+
+- repertoire des établissements
+    - recherche d'un établissement
+    - liste des établissements
+    - liste des établissements par ville
+    - liste des établissements par type
+    - liste des établissements par niveau
+    - liste des établissements par filière
+    - liste des établissements par option
+    - liste des établissements par langue
+    - liste des établissements par type d'enseignement
+    - liste des établissements par type d'encadrement
+
+- trouvez un professeur particulier
+    - recherche d'un professeur
+    - liste des professeurs
+    - liste des professeurs par ville
+    - liste des professeurs par niveau
+    - liste des professeurs par filière
+    - liste des professeurs par option
+    - liste des professeurs par langue
+    - liste des professeurs par type d'enseignement
+    - liste des professeurs par type d'encadrement
+    - liste des professeurs par type de document
+
+### application bgrfacile premium pour les établissements
+
+L'application bgrfacile premium est une application qui permet aux établissements scolaire de gérer leur établissement.
+Elle posséde les fonctionnalités de base suivantes:
+
+- création de son établissement (école, collège, lycée, université, etc.)
+- gestion des classes
+- gestion des matières
+- gestion des professeurs
+- gestion des élèves
+- gestion des parents
+- gestion des cours
+- gestion des devoirs et quiz (qui a fait quoi, qui a rendu quoi, qui a corrigé quoi, etc.)
+- gestion de emploi du temps
+- gestion des notes
+- gestion des bulletins de notes
+- gestion des absences
+- gestion des paiements
+- gestion des évènements
+- gestion des annonces
+- gestion des messages
+- gestion des notifications
+- gestion des paramètres
+- gestion des statistiques
+- gestion des rôles et permissions
+- gestion des abonnements
+- gestion de l'espace blog de l'établissement
+- gestion de l'espace inscription à l'établissement
+- gestion des sondages et enquêtes (sondage, enquête, questionnaire, etc.)
 
 ## Mise en place de la base de données
 
@@ -369,7 +442,7 @@ le site web est composé de plusieurs services:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### SchoolUser
+### SchoolUser ``Pivot``
 
     -   id | int
     -   school_id | int
