@@ -23,21 +23,37 @@
                         coordonnées fournies.</p>
                 </div>
                 <div class="bg-white p-6 rounded shadow-md">
-                    <form>
+                    @if(session('success'))
+                        <div class="bg-green-500 text-white py-4 px-6 rounded">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    <form action="{{ route('contact.send') }}" method="POST">
+                        @csrf
                         <div class="mb-4">
                             <label for="name" class="block text-sm font-medium text-gray-700">Nom</label>
                             <input type="text" id="name" name="name"
-                                   class="mt-1 block w-full p-2 border border-gray-300 rounded">
+                                   value="{{ old('name') }}"
+                                   class="text-gray-800 mt-1 block w-full p-2 border {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }} rounded">
+                            @error('name')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-4">
                             <label for="email" class="block text-sm font-medium text-gray-700">Adresse e-mail</label>
-                            <input type="email" id="email" name="email"
-                                   class="mt-1 block w-full p-2 border border-gray-300 rounded">
+                            <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                   class="text-gray-800 mt-1 block w-full p-2 border {{ $errors->has('email') ? 'border-red-500' : 'border-gray-300' }} rounded">
+                            @error('email')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="mb-4">
                             <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                             <textarea id="message" name="message" rows="4"
-                                      class="mt-1 block w-full p-2 border border-gray-300 rounded"></textarea>
+                                      class="text-gray-800 mt-1 block w-full p-2 border {{ $errors->has('message') ? 'border-red-500' : 'border-gray-300' }} rounded"></textarea>
+                            @error('message')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                         <div class="text-right">
                             <button type="submit"
