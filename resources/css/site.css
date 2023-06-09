@@ -1,0 +1,324 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --vp-home-hero-image-background-image: linear-gradient(-45deg, #347dfe 20%, #47caff 20%);
+    --vp-home-hero-image-filter: blur(72px);
+}
+
+
+.options {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+    min-width: 600px;
+    max-width: 900px;
+    width: calc(100% - 100px);
+    height: 400px;
+}
+
+@media screen and (max-width: 718px) {
+    .options {
+        min-width: 520px;
+    }
+
+    .options .option:nth-child(5) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    .options {
+        min-width: 440px;
+    }
+
+    .options .option:nth-child(4) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 558px) {
+    .options {
+        min-width: 360px;
+    }
+
+    .options .option:nth-child(3) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .options {
+        min-width: 280px;
+    }
+
+    .options .option:nth-child(2) {
+        display: none;
+    }
+}
+
+.option:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    z-index: 2;
+}
+
+.option.active:after {
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.02);
+}
+
+.options .option {
+    position: relative;
+    overflow: hidden;
+    min-width: 60px;
+    margin: 10px;
+    background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+    background-size: auto 120%;
+    background-position: center;
+    cursor: pointer;
+    -webkit-transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+    box-shadow: 0px -6px 10px white, 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.options .option.active {
+    -webkit-box-flex: 10000;
+    flex-grow: 10000;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    max-width: 600px;
+    margin: 0px;
+    border-radius: 40px;
+    background-size: auto 100%;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.02);
+}
+
+.options .option:nth-child(1) {
+    --defaultBackground: #ED5565;
+}
+
+.options .option:nth-child(2) {
+    --defaultBackground: #FC6E51;
+}
+
+.options .option:nth-child(3) {
+    --defaultBackground: #FFCE54;
+}
+
+.options .option:nth-child(4) {
+    --defaultBackground: #2ECC71;
+}
+
+.options .option:nth-child(5) {
+    --defaultBackground: #5D9CEC;
+}
+
+.options .option:nth-child(6) {
+    --defaultBackground: #AC92EC;
+}
+
+.options .option.active .shadow {
+    box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+}
+
+.options .option.active .label {
+    bottom: 20px;
+    left: 20px;
+}
+
+.options .option.active .label .info > div {
+    left: 0px;
+    opacity: 1;
+}
+
+.options .option:not(.active) {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    border-radius: 30px;
+}
+
+.options .option:not(.active) .shadow {
+    bottom: -40px;
+    box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+}
+
+.options .option:not(.active) .label {
+    bottom: 10px;
+    left: 10px;
+}
+
+.options .option:not(.active) .label .info > div {
+    left: 20px;
+    opacity: 0;
+}
+
+.options .option .shadow {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 120px;
+    -webkit-transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.options .option .label {
+    display: -webkit-box;
+    display: flex;
+    position: absolute;
+    right: 0px;
+    height: 40px;
+    -webkit-transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.options .option .label .icon {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: white;
+    color: var(--defaultBackground);
+}
+
+.options .option .label .info {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-left: 10px;
+    color: white;
+    white-space: pre;
+}
+
+.options .option .label .info > div {
+    position: relative;
+    -webkit-transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+}
+
+.options .option .label .info .main {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.options .option .label .info .sub {
+    -webkit-transition-delay: .1s;
+    transition-delay: .1s;
+}
+
+
+/*
+Home Page
+*/
+.image-allow {
+    width: 320px;
+    height: 320px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background-image: var(--vp-home-hero-image-background-image);
+    filter: var(--vp-home-hero-image-filter);
+    transform: translate(-50%, -50%);
+}
+
+.container_home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.banner {
+    background-color: #f8f8f8;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.banner-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.banner-text {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.grid_feature {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.feature {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.feature-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.feature-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    font-size: 16px;
+    color: #555;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
