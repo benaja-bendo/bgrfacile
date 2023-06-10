@@ -39,7 +39,7 @@ Route::prefix('/')->group(function () {
 });
 
 
-Route::prefix('/dashboard')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('/dashboard')->middleware(['auth', 'verified', 'superadmin'])->group(function () {
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');

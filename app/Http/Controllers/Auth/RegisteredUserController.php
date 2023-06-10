@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Constants\Roles;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -42,6 +43,10 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        User::count() <= 1 ?
+            $user->assignRole(Roles::SUPER_ADMIN) :
+            $user->assignRole(Roles::STUDENT);
 
         event(new Registered($user));
 
