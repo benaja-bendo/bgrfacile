@@ -58,12 +58,12 @@
                                 {{ __('Profil') }}
                             </x-dropdown-link>
 
-                            <x-dropdown-link :href="route('cours.create')">
+                            {{--<x-dropdown-link :href="route('cours.create')">
                                 {{ __('Nouveau cours') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('cours.mycour')">
                                 {{ __('Liste des cours') }}
-                            </x-dropdown-link>
+                            </x-dropdown-link>--}}
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

@@ -16,7 +16,9 @@ Route::prefix('/')->group(function () {
 
     Route::get('/about', \App\Http\Controllers\AboutController::class)->name('about');
 
-    Route::get('/contact', \App\Http\Controllers\ContactController::class)->name('contact');
+    Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index'])->name('contact');
+
+    Route::post('/contact', [\App\Http\Controllers\ContactController::class, 'sendEmail'])->name('contact.send');
 
     Route::get('/search', \App\Http\Controllers\SearchController::class)->name('search');
 
@@ -28,7 +30,7 @@ Route::prefix('/')->group(function () {
 
     Route::get('/politique-de-cookies', \App\Http\Controllers\CookiePolicyController::class)->name('cookie.policy');
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
