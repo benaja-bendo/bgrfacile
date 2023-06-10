@@ -1,6 +1,6 @@
 <p style="text-align: center">
 <a href="https://bgrfacile.com" target="_blank">
-<img src="D:\LAB\_PROD\bgrfacile\lab\bgrfacile\public\assets\images\logo_bgrfacile.svg" width="400" alt="Bgrfacile Logo" title="bgrfacile">
+<img src="public\assets\images\logo_bgrfacile.svg" width="400" alt="Bgrfacile Logo" title="bgrfacile">
 </a>
 </p>
 
@@ -108,14 +108,14 @@ des experts ou des instructeurs qualifiés.
 Le site posséde les fonctionnalités de base suivantes:
 
 - Tableau de bord
-  - [x] Authentification
-  - [x] Gestion des utilisateurs
-  - [x] Gestion des établissements
-  - [x] Gestion des paiements
-  - [x] Gestion des paramètres
-  - [x] Gestion des statistiques
-  - [x] Gestion des rôles et permissions
-  - [x] Gestion des abonnements
+    - [x] Authentification
+    - [x] Gestion des utilisateurs
+    - [x] Gestion des établissements
+    - [x] Gestion des paiements
+    - [x] Gestion des paramètres
+    - [x] Gestion des statistiques
+    - [x] Gestion des rôles et permissions
+    - [x] Gestion des abonnements
 
 - bibliothèque de cours
     - recherche d'un cours
