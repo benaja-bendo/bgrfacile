@@ -62,7 +62,7 @@
         </div>
     </section>
 
-    <section class="schools my-8 px-4 sm:px-6 lg:px-8">
+    <section class="schools my-8 px-4 sm:px-6 lg:px-8 ">
         <div class="container_home text-gray-800 dark:text-gray-200">
             <h2 class="section-title">Établissements Scolaires</h2>
             <p class="section-description text-gray-800 dark:text-gray-100">En plus des ressources pédagogiques, nous
@@ -105,7 +105,7 @@
         </div>
     </section>
 
-    <section class="features my-8 px-4 sm:px-6 lg:px-8">
+    <section class="features py-12 container my-8 px-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
         {{--    <section class="container mx-auto px-4 py-8">--}}
         <h2 class="text-3xl font-bold mb-8">Foire aux questions</h2>
 
