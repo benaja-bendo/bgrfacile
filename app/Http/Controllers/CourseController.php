@@ -9,6 +9,6 @@ class CourseController extends Controller
 {
     public function index(): View
     {
-        return view('Pages.course');
+        return view('Pages.course.index');
     }
 }
