@@ -43,6 +43,8 @@ Route::prefix('/dashboard')->middleware(['auth', 'verified', 'superadmin'])->gro
     Route::get('/', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('/users', [\App\Http\Controllers\Dashboard\UserController::class, 'index'])->name('users.index');
 });
 
 
