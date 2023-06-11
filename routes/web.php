@@ -42,9 +42,11 @@ Route::prefix('/')->group(function () {
 Route::prefix('/dashboard')->middleware(['auth', 'verified', 'superadmin'])->group(function () {
     Route::get('/', function () {
         return Inertia::render('Dashboard');
-    })->name('dashboard');
+    })->name('dashboard.index');
 
     Route::get('/users', [\App\Http\Controllers\Dashboard\UserController::class, 'index'])->name('users.index');
+
+    Route::get('/statistics', [\App\Http\Controllers\Dashboard\StatisticController::class, 'index'])->name('statistics.index');
 });
 
 

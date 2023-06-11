@@ -1,4 +1,4 @@
-// vite.config.js
+// vite.config.jsx
 import { defineConfig } from "file:///D:/LAB/_PROD/bgrfacile/lab/bgrfacile/node_modules/vite/dist/node/index.js";
 import laravel from "file:///D:/LAB/_PROD/bgrfacile/lab/bgrfacile/node_modules/laravel-vite-plugin/dist/index.mjs";
 import react from "file:///D:/LAB/_PROD/bgrfacile/lab/bgrfacile/node_modules/@vitejs/plugin-react/dist/index.mjs";
