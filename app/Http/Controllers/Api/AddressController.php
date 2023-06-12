@@ -66,6 +66,6 @@ class AddressController extends Controller
             return $this->sendError('Address not found.');
         }
         $address->delete();
-        return $this->sendResponse([], 'Address deleted successfully.');
+        return $this->sendResponse(null, 'Address deleted successfully.');
     }
 }

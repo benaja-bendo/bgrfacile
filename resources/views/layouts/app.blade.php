@@ -12,7 +12,7 @@
     <link href="https://fonts.bunny.net/css?family=Poppins:400,500,600&display=swap" rel="stylesheet"/>
 
     <!-- Scripts -->
-    @vite(['resources/css/site.css', 'resources/js/site.js'])
+    @vite(['resources/js/site.js'])
 </head>
 <body class="font-sans antialiased text-gray-800 dark:text-gray-200" x-data="{ darkMode: false }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     localStorage.setItem('darkMode', JSON.stringify(true));
@@ -24,7 +24,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
     <!-- Page Heading -->
     @if (isset($header))
-        <header class="bg-white dark:bg-gray-800 shadow">
+        <header class="bg-white dark:bg-gray-800 shadow" style="position: sticky;top: 0;z-index: 1">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 {{ $header }}
             </div>

@@ -4,7 +4,7 @@
 </a>
 </p>
 
-## About bgrfacile
+## A propos de Bgrfacile
 
 Bgrfacile est une Plateforme numérique qui a pour but de faciliter l'enseignement et l'apprentissage, tout en aidant à
 la gestion quotidienne des établissement scolaire. Pour ce faire, elle met à la disposition des enseignants et des
@@ -74,34 +74,20 @@ En plus du contenu préenregistré, vous pouvez proposer des sessions de formati
 séances de coaching payantes. Les utilisateurs peuvent payer pour participer à ces sessions interactives dispensées par
 des experts ou des instructeurs qualifiés.
 
-## Mise en place du projet
-
-### Prérequis
-
-- PHP 8.1^
-- Composer 2.1.9^
-- MySQL 8.0^
-- Node 14.17.6^
-- NPM 6.14.15^
-- Redis 6.2.5^
-
-### Installation
-
-- Cloner le projet sur votre machine locale `git clone ...`.
-- Se placer dans le dossier du projet `cd bgrfacile`.
-- Lancer la commande `composer install` pour installer les dépendances PHP.
-- Lancer la commande `npm install`.
-- Lancer la commande `npm run build`.
-- Copier le fichier `.env.example` et le renommer en `.env`.
-- Modifier les variables d'environnement dans le fichier `.env` (base de données, mail, etc.) selon votre configuration.
-- Lancer la commande `php artisan migrate` pour créer les tables dans la base de données.
-- Lancer la commande `php artisan db:seed` pour remplir les tables avec des données de test.
-- Lancer la commande `php artisan storage:link` pour créer le lien symbolique vers le dossier de stockage.
-- Lancer la commande `php artisan passport:install` pour installer les clés de chiffrement de passport.
-- Lancer la commande `php artisan queue:work` pour lancer le worker de queue.
-- Lancer la commande `php artisan serve` pour lancer le serveur de développement.
-
 ## Liste des fonctionnalités
+
+### role et permission
+
+- [x] gestion des roles
+- [x] gestion des permissions
+- [x] gestion des utilisateurs
+- [x] gestion des abonnements
+- [x] gestion des établissements
+- [x] gestion des paiements
+- [x] gestion des paramètres
+- [x] gestion des statistiques
+
+### application mobile bgrfacile (libre pour tous)
 
 ### site web bgrfacile (libre pour tous)
 
@@ -213,7 +199,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   email | string (unique)
     -   slug | string (unique) (default: first_name-last_name)
     -   birthday | date?
-    -   phone | string?
+    -   number_phone | string?
     -   gender | string?
     -   profile_picture | string?
     -   email_verified_at | datetime?
@@ -565,4 +551,45 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 -->
+
+## Roles dans l'application
+
+- **Administrateur** : Gestion des écoles, des utilisateurs, des abonnements, des paiements, des paramètres, etc.
+- **École** : Gestion des classes, des devoirs, des notes, des absences, des événements, des annonces, des messages, des
+  notifications, etc.
+- **Élève** : Gestion des devoirs, des notes, des absences, des événements, des annonces, des messages, des
+  notifications, etc.
+- **Parent** : Gestion des devoirs, des notes, des absences, des événements, des annonces, des messages, des
+  notifications, etc.
+- **Professeur** : Gestion des devoirs, des notes, des absences, des événements, des annonces, des messages, des
+  notifications, etc.
+- **Comptable** : Gestion des paiements, des abonnements, des paramètres, etc.
+
+## Mise en place du projet
+
+### Prérequis
+
+- PHP 8.1^
+- Composer 2.1.9^
+- MySQL 8.0^
+- Node 14.17.6^
+- NPM 6.14.15^
+- Redis 6.2.5^
+
+### Installation
+
+- Cloner le projet sur votre machine locale `git clone ...`.
+- Se placer dans le dossier du projet `cd bgrfacile`.
+- Lancer la commande `composer install` pour installer les dépendances PHP.
+- Lancer la commande `npm install`.
+- Lancer la commande `npm run build`.
+- Copier le fichier `.env.example` et le renommer en `.env`.
+- Modifier les variables d'environnement dans le fichier `.env` (base de données, mail, etc.) selon votre configuration.
+- Lancer la commande `php artisan migrate` pour créer les tables dans la base de données.
+- Lancer la commande `php artisan db:seed` pour remplir les tables avec des données de test.
+- Lancer la commande `php artisan storage:link` pour créer le lien symbolique vers le dossier de stockage.
+- Lancer la commande `php artisan passport:install` pour installer les clés de chiffrement de passport.
+- Lancer la commande `php artisan queue:work` pour lancer le worker de queue.
+- Lancer la commande `php artisan serve` pour lancer le serveur de développement.
+
 
