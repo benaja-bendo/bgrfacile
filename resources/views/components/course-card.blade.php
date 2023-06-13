@@ -19,7 +19,8 @@
             <p>Cycle: Collège</p>
             <p>Niveau: Niveau 2</p>
             <p>Matière: Mathématiques</p>
-            <p>Contenu proposé par: Professeur 1</p>
+            <p>Contenu proposé par: <a href="" class="text-blue-600">{{ $course->users->first()->fullName }}</a>
+            </p>
             <p>
                 publié le: {{ $course->created_at->format('d/m/Y') }}
             </p>

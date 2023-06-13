@@ -12,6 +12,13 @@ class CourseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Course::factory()->count(100)->create();
+        $courses = \App\Models\Course::factory()->count(100)->create();
+        $users = \App\Models\User::all();
+        $courses->each(function ($course) use ($users) {
+            $course->users()->attach(
+                $users->random(1)->pluck('id')->toArray()
+            );
+        });
+
     }
 }

@@ -18,6 +18,7 @@ class CourseController extends Controller
             ->orderByDesc('created_at')
 //            ->paginate($request->get('per_page', 10));
             ->paginate(5);
+
         return view('Pages.course.index', [
             'courses' => $courses,
             'cours' => [],
