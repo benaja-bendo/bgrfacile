@@ -233,7 +233,19 @@ Elle posséde les fonctionnalités de base suivantes:
     -   name | string
     -   slug | string (unique) (default: name)
     -   description | text?
-    -   status | enum (default: "draft") (draft, published, archived)
+    -   status | enum (default: "draft") (draft, published, unpublished)
+    -   is_premium | boolean (default: false)
+    -   created_at | datetime (default: now)
+    -   updated_at | datetime (default: now)
+
+### Lesson
+
+    -   id | int
+    -   course_id | int
+    -   name | string
+    -   slug | string (unique) (default: name)
+    -   description | text?
+    -   status | enum (default: "draft") (draft, published, unpublished)
     -   is_premium | boolean (default: false)
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
