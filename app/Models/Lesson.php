@@ -4,19 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Course extends Model
+class Lesson extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillable = [
         'name',
-        'description',
+        'course_id',
         'slug',
+        'description',
         'status',
         'is_premium',
+    ];
+
+    protected $casts = [
+        'is_premium' => 'boolean',
     ];
 
     public const TYPE_CONTENT = [
@@ -27,12 +31,8 @@ class Course extends Model
         'video' => 'video',
     ];
 
-    protected $casts = [
-        'is_premium' => 'boolean',
-    ];
-
-    public function lessons(): HasMany
+    public function course(): BelongsTo
     {
-        return $this->hasMany(Lesson::class);
+        return $this->belongsTo(Course::class);
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Resources\Course;
+namespace App\Http\Resources\Lesson;
 
-use App\Http\Resources\Lesson\LessonCollection;
+use App\Http\Resources\Course\CourseResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CourseResource extends JsonResource
+class LessonResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,14 +17,15 @@ class CourseResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'courseId' => $this->whenLoaded('course', fn() => $this->course->id),
             'name' => $this->name,
-            'slug' => $this->slug ?? '',
-            'isPremium' => $this->is_premium,
-            'status' => $this->status,
+            'slug' => $this->slug,
             'description' => $this->description,
+            'status' => $this->status,
+            'courses' => $this->whenLoaded('course', fn() => new CourseResource($this->course)),
+            'isPremium' => $this->is_premium,
             'createdAt' => $this->created_at,
             'updatedAt' => $this->updated_at,
-            'lessons' => $this->whenLoaded('lessons', fn() => new LessonCollection($this->lessons)),
         ];
     }
 }

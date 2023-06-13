@@ -19,7 +19,7 @@ class CourseController extends Controller
     public function index(Request $request): JsonResponse
     {
         $courses = Course::query()
-//            ->with('lessons')
+            ->with('lessons')
             ->when($request->has('status'), fn($query) => $query->where('status', $request->get('status')))
             ->when($request->has('is_premium'), fn($query) => $query->where('is_premium', $request->get('is_premium')))
             ->when($request->has('search'), fn($query) => $query->where('name', 'like', '%' . $request->get('search') . '%'))

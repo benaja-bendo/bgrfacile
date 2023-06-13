@@ -10,15 +10,15 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('courses', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignIdFor(\App\Models\Course::class)->constrained()->cascadeOnDelete();
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->enum('status', ['draft', 'published', 'unpublished'])->default('draft');
             $table->boolean('is_premium')->default(false);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('courses');
+        Schema::dropIfExists('lessons');
     }
 };
