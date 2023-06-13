@@ -250,7 +250,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CourseUser
+### Course_User `Pivot`
 
     -   id | int
     -   course_id | int
