@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
+    <x-slot name="headerWithoutSticky">
         <div class="flex flex-col justify-center items-center text-center md:text-left md:flex-row-reverse">
             <div class="flex-grow grid h-full w-full md:w-1/2">
                 <div class="flex justify-center items-center relative">
