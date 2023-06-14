@@ -38,6 +38,7 @@ class CycleSeeder extends Seeder
                     'name' => $data['name'],
                     'slug' => $data['slug'],
                     'description' => $data['description'] ?? null,
+                    'status' => $data['status'] ?? 'published',
                 ]);
             }
         } else {

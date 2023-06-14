@@ -291,14 +291,12 @@ Elle posséde les fonctionnalités de base suivantes:
 ### Skill
 
     -   id | int
-    -   name | string
-    -   slug | string (unique) (default: name)
-    -   description | text?
-    -   status | enum (default: "draft") (draft, published, archived)
+    -   name | string (unique) (default: name)
+    -   status | enum (default: "draft") (draft, published, unpublished)
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CourseCycle ``Pivot``
+### CourseCycle `Pivot`
 
     -   id | int
     -   course_id | int
@@ -306,7 +304,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CourseLevel ``Pivot``
+### CourseLevel `Pivot`
 
     -   id | int
     -   course_id | int
@@ -314,7 +312,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CourseSubject ``Pivot``
+### CourseSubject `Pivot`
 
     -   id | int
     -   course_id | int
@@ -322,7 +320,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CourseSkill ``Pivot``
+### CourseSkill `Pivot`
 
     -   id | int
     -   course_id | int
@@ -449,7 +447,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   updated_at | datetime (default: now)
 
 <!--
-### Class
+### ClassRoom
 
     -   id | int
     -   name | string

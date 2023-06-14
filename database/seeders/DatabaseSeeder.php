@@ -21,6 +21,10 @@ class DatabaseSeeder extends Seeder
             AddressSeeder::class,
             CourseSeeder::class,
             LessonSeeder::class,
+            CycleSeeder::class,
+            LevelSeeder::class,
+            SubjectSeeder::class,
+            SkillSeeder::class,
         ]);
     }
 }

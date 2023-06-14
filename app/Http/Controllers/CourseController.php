@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Cycle;
+use App\Models\Level;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -21,10 +24,9 @@ class CourseController extends Controller
 
         return view('Pages.course.index', [
             'courses' => $courses,
-            'cours' => [],
-            'cycles' => [],
-            'levels' => [],
-            'matieres' => [],
+            'cycles' => Cycle::query()->where('status', 'published')->get(),
+            'levels' => Level::query()->where('status', 'published')->get(),
+            'matieres' => Subject::query()->where('status', 'published')->get(),
         ]);
     }
 
