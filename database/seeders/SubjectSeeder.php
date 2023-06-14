@@ -89,6 +89,12 @@ class SubjectSeeder extends Seeder
             foreach ($datas as $data) {
                 \App\Models\Subject::factory()->create($data);
             }
+
+            $subjects = \App\Models\Subject::all();
+            $courses = \App\Models\Course::all();
+            foreach ($courses as $course) {
+                $course->subjects()->attach($subjects->random(rand(1, 3))->pluck('id')->toArray());
+            }
         }
     }
 

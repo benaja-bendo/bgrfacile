@@ -51,4 +51,9 @@ class Course extends Model
     {
         return $this->belongsToMany(Level::class, 'course_level')->withTimestamps();
     }
+
+    public function subjects(): BelongsToMany
+    {
+        return $this->belongsToMany(Subject::class, 'course_subject')->withTimestamps();
+    }
 }
