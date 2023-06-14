@@ -45,6 +45,11 @@ class CycleSeeder extends Seeder
             foreach ($datas as $data) {
                 \App\Models\Cycle::factory()->create($data);
             }
+            $cycles = \App\Models\Cycle::all();
+            $courses = \App\Models\Course::all();
+            foreach ($courses as $course) {
+                $course->cycles()->attach($cycles->random(rand(1, 2))->pluck('id')->toArray());
+            }
         }
     }
 }

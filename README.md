@@ -296,7 +296,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CourseCycle `Pivot`
+### course_cycle `Pivot`
 
     -   id | int
     -   course_id | int
@@ -304,7 +304,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CourseLevel `Pivot`
+### course_level `Pivot`
 
     -   id | int
     -   course_id | int
