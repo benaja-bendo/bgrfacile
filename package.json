@@ -21,6 +21,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@editorjs/editorjs": "^2.27.0",
+        "@editorjs/header": "^2.7.0",
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
         "@heroicons/react": "^2.0.18",

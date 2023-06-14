@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             LevelSeeder::class,
             SubjectSeeder::class,
             SkillSeeder::class,
+            ContentTextSeeder::class,
         ]);
     }
 }

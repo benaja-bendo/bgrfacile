@@ -1,0 +1,30 @@
+.button-group {
+    display: flex;
+}
+
+.button {
+    padding: 8px 16px;
+    border: none;
+    background-color: transparent;
+    color: #4B5563;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.button.active {
+    color: #1E40AF;
+    font-weight: bold;
+}
+
+#bottomSheet {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    transition: bottom 0.3s ease-in-out;
+    overflow-y: scroll;
+}
+
+#bottomSheet.open {
+    bottom: 0;
+}
