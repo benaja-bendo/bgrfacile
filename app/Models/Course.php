@@ -46,4 +46,9 @@ class Course extends Model
     {
         return $this->belongsToMany(Cycle::class, 'course_cycle')->withTimestamps();
     }
+
+    public function levels(): BelongsToMany
+    {
+        return $this->belongsToMany(Level::class, 'course_level')->withTimestamps();
+    }
 }

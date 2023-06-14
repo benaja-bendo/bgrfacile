@@ -84,6 +84,13 @@ class LevelSeeder extends Seeder
             foreach ($datas as $data) {
                 \App\Models\Level::factory()->create($data);
             }
+
+            $levels = \App\Models\Level::all();
+            $courses = \App\Models\Course::all();
+
+            foreach ($courses as $course) {
+                $course->levels()->attach($levels->random(rand(1, 3))->pluck('id')->toArray());
+            }
         }
     }
 }
