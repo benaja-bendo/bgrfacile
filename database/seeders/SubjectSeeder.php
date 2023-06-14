@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cycle;
+use App\Models\Level;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -95,6 +97,13 @@ class SubjectSeeder extends Seeder
             foreach ($courses as $course) {
                 $course->subjects()->attach($subjects->random(rand(1, 3))->pluck('id')->toArray());
             }
+            Level::all()->each(function ($level) use ($subjects) {
+                $level->subjects()->attach($subjects->random(rand(1, 3))->pluck('id')->toArray());
+            });
+
+            Cycle::all()->each(function ($cycle) use ($subjects) {
+                $cycle->subjects()->attach($subjects->random(rand(1, 3))->pluck('id')->toArray());
+            });
         }
     }
 

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cycle;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -91,6 +92,10 @@ class LevelSeeder extends Seeder
             foreach ($courses as $course) {
                 $course->levels()->attach($levels->random(rand(1, 3))->pluck('id')->toArray());
             }
+
+            Cycle::all()->each(function ($cycle) {
+                $cycle->levels()->attach(\App\Models\Level::all()->random(rand(1, 3))->pluck('id')->toArray());
+            });
         }
     }
 }

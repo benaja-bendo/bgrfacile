@@ -328,7 +328,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CycleLevel
+### cycle_level
 
     -   id | int
     -   cycle_id | int
@@ -336,7 +336,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### LevelSubject ``Pivot``
+### level_subject ``Pivot``
 
     -   id | int
     -   level_id | int
@@ -344,7 +344,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
-### CycleSubject ``Pivot``
+### cycle_subject ``Pivot``
 
     -   id | int
     -   cycle_id | int

@@ -21,4 +21,15 @@ class Level extends Model
     {
         return $this->belongsToMany(Course::class, 'course_level')->withTimestamps();
     }
+
+    public function cycles(): BelongsToMany
+    {
+        return $this->belongsToMany(Cycle::class, 'cycle_level')->withTimestamps();
+    }
+
+    public function subjects(): BelongsToMany
+    {
+        return $this->belongsToMany(Subject::class, 'level_subject')->withTimestamps();
+    }
+
 }

@@ -21,4 +21,14 @@ class Subject extends Model
     {
         return $this->belongsToMany(Course::class, 'course_subject')->withTimestamps();
     }
+
+    public function levels(): BelongsToMany
+    {
+        return $this->belongsToMany(Level::class, 'level_subject')->withTimestamps();
+    }
+
+    public function cycles(): BelongsToMany
+    {
+        return $this->belongsToMany(Cycle::class, 'cycle_subject')->withTimestamps();
+    }
 }
