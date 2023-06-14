@@ -274,7 +274,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   name | string
     -   slug | string (unique) (default: name)
     -   description | text?
-    -   status | enum (default: "draft") (draft, published, archived)
+    -   status | enum (default: "draft") (draft, published, unpublished)
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
@@ -284,7 +284,7 @@ Elle posséde les fonctionnalités de base suivantes:
     -   name | string
     -   slug | string (unique) (default: name)
     -   description | text?
-    -   status | enum (default: "draft") (draft, published, archived)
+    -   status | enum (default: "draft") (draft, published, unpublished)
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
