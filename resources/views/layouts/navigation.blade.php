@@ -2,7 +2,7 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            <div class="flex w-3/4">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}" class="flex gap-2 items-center">
@@ -12,7 +12,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex relative">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex relative overflow-x-auto">
                     <x-nav-link :href="route('course.index')" :active="request()->routeIs('course.index')">
                         {{ __('Ressources') }}
                     </x-nav-link>
@@ -29,7 +29,7 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:gap-4 sm:items-center sm:ml-6">
+            <div class="w-1/4 hidden sm:flex justify-end sm:gap-4 sm:items-center sm:ml-6">
                 <a href="{{ route('search') }}"
                    class="text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-300 p-1 rounded-md text-sm font-medium border border-transparent bg-transparent hover:bg-gray-200 dark:hover:bg-gray-700">
                     <x-svg.search class="inline-flex h-8 w-auto fill-current"/>
@@ -39,7 +39,7 @@
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
-                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                                class="inline-flex items-center min-w-fit px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->full_name }}</div>
 
                                 <div class="ml-1">
@@ -133,7 +133,7 @@
                 </div>
                 <div class="mt-3 space-y-1">
                     <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
+                        {{ __('AppProfile') }}
                     </x-responsive-nav-link>
 
                     <!-- Authentication -->

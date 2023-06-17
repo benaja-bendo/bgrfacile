@@ -31,6 +31,12 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         </header>
     @endif
     <!-- Page Heading -->
+    @if (isset($headerProfile))
+        <header class="bg-white dark:bg-gray-800 shadow z-50" style="position: sticky;top: 0;">
+            {{ $headerProfile }}
+        </header>
+    @endif
+    <!-- Page Heading -->
     @if (isset($headerWithoutSticky))
         <header class="bg-white dark:bg-gray-800 shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

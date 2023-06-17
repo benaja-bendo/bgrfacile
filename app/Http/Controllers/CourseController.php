@@ -20,7 +20,7 @@ class CourseController extends Controller
             ->when($request->has('sort'), fn($query) => $query->orderBy('name', $request->get('sort')))
             ->orderByDesc('created_at')
 //            ->paginate($request->get('per_page', 10));
-            ->paginate(5);
+            ->paginate();
 
         return view('Pages.course.index', [
             'courses' => $courses,
