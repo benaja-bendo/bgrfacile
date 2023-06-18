@@ -20,6 +20,9 @@
         </div>
     </x-slot>
 
+
+
+
     <section style="width: 100%" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid gap-4 grid-cols-[1fr] md:grid-cols-[minmax(180px,300px),1fr] grid-rows-[auto,1fr] items-start">
             <div class="hidden md:block">
@@ -40,7 +43,6 @@
         <!-- Contenu de la feuille inférieure -->
         @include('pages.course.partials.details-show')
     </div>
-
 
     <x-slot name="scripts">
         @php

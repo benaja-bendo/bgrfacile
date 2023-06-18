@@ -1,32 +1,22 @@
 <div class="md:overflow-y-auto md:h-[calc(100vh-5rem)]">{{-- md:h-[calc(100vh-10rem)]"> --}}
     <!-- filtres  -->
     <div class="mb-4 text-gray-800 flex justify-between items-center">
-        <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200">
-            Filtrer le contenu
-        </h2>
-        {{--        <button type="button" class="focus:outline-none" --}}{{--id="btn_close_filter"--}}{{-->--}}
-        {{--            <svg class="fill-current text-gray-800 dark:text-gray-200" width="32" height="32" viewBox="0 0 24 24">--}}
-        {{--                <path fill="currentColor" d="M10 18v-2h4v2Zm-4-5v-2h12v2ZM3 8V6h18v2Z"/>--}}
-        {{--            </svg>--}}
-        {{--        </button>--}}
+        <x-svg.filter class="w-6 h-6 text-gray-400 dark:text-gray-300"/>
     </div>
     <!-- recherche -->
     <div class="mt-4">
         <label for="search" class="sr-only">Recherche</label>
-        <form class="relative" action="{{ route('course.index') }}" method="GET">
+        <form class="relative" action="{{ url()->current() }}" method="GET">
             <input type="text" value="{{ request()->search }}" name="search" id="search" placeholder="Recherche"
                    class="w-full text-gray-800 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             <button type="submit"
                     class="shadow bg-white dark:bg-gray-800 rounded-md p-1 absolute right-1 top-1/2 transform -translate-y-1/2">
-                <svg width="32" height="32" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                          d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14M9.5 14C7 14 5 12 5 9.5S7 5 9.5 5 14 7 14 9.5 12 14 9.5 14Z"/>
-                </svg>
+                <x-svg.search width="32" height="32" class="fill-current text-gray-400 dark:text-gray-300"/>
             </button>
         </form>
     </div>
     <!-- form -->
-    <form class="hidden md:block" id="form" action="{{ route('course.index') }}" method="GET">
+    <form class="hidden md:block" id="form" action="{{ url()->current() }}" method="GET">
         <!-- button recharger -->
         <div class="mt-4 hidden" id="recharge_form">
             <button type="submit"
@@ -41,15 +31,15 @@
         <div class="mt-4">
             <h3>Type de cours</h3>
             <div class="mt-2">
-                <input type="radio" name="is_free" id="price1" value="1" {{ request()->is_premium == '1' ? 'checked' : ''
+                <input type="radio" name="is_premium" id="price1" value="1" {{ request()->is_premium == '1'||request()->is_premium == null ? 'checked' : ''
                 }} />
 
-                <label for="price1">Payante</label>
+                <label for="price1">Gratuite</label>
             </div>
             <div class="mt-2">
-                <input type="radio" name="is_free" id="price2" value="0" {{ request()->is_premium == '0' ? 'checked' : ''
+                <input type="radio" name="is_premium" id="price2" value="0" {{ request()->is_premium == '0' ? 'checked' : ''
                 }} />
-                <label for="price2">Gratuite</label>
+                <label for="price2">Payante</label>
             </div>
         </div>
         <!-- checkbox format -->

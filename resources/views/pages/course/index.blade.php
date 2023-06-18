@@ -1,21 +1,25 @@
 <x-app-layout>
-    <x-slot name="header">
-        <div x-data="{ filter: false }">
-            <div class="flex justify-between items-center">
-                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                    {{ __('Liste des cours') }}
-                </h2>
+    <x-slot name="headerProfile">
+        <div x-data="{ filter: false }" class="w-full flex max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+            <nav class="w-full flex-1 flex justify-self-start space-x-8  overflow-x-auto">
+                <x-nav-profile-link class="flex items-center justify-center gap-1" :href="route('course.index')"
+                                    :active="request()->routeIs('course.index')">
+                    <x-svg.course class="h-5 w-5 text-gray-400 dark:text-gray-300"/>
+                    {{ __('Cours') }}
+                </x-nav-profile-link>
+                <x-nav-profile-link class="flex items-center justify-center gap-1" :href="route('exercice.index')"
+                                    :active="request()->routeIs('exercice.index')">
+                    <x-svg.exercise class="h-5 w-5 text-gray-400 dark:text-gray-300"/>
+                    {{ __('Exercices') }}
+                </x-nav-profile-link>
+            </nav>
+            <div class="flex items-center justify-self-end">
                 <button
-                    class="flex gap-1 items-center text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none"
+                    class="md:hidden inline-flex items-center px-3 py-2 border text-sm leading-4 font-medium rounded-md text-gray-500 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
                     x-on:click="filter = ! filter">
-                    <x-svg.filter-list-on
-                        class="w-6 h-6"/>
-                    <span>Filtrer le contenu</span>
+                    <x-svg.filter class="w-6 h-6 text-gray-400 dark:text-gray-300"/>
                 </button>
             </div>
-            <template x-if="filter">
-                @include('pages.course.partials.filtre-mobile')
-            </template>
         </div>
         {{--<x-flash-message :message="$message ='tu vas bien'"/>--}}
     </x-slot>

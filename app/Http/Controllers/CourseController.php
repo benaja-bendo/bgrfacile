@@ -14,10 +14,10 @@ class CourseController extends Controller
     public function index(Request $request): View
     {
         $courses = Course::query()
-            ->when($request->has('status'), fn($query) => $query->where('status', $request->get('status')))
-            ->when($request->has('is_premium'), fn($query) => $query->where('is_premium', $request->get('is_premium')))
             ->when($request->has('search'), fn($query) => $query->where('name', 'like', '%' . $request->get('search') . '%'))
-            ->when($request->has('sort'), fn($query) => $query->orderBy('name', $request->get('sort')))
+            ->when($request->has('is_premium'), fn($query) => $query->where('is_premium', $request->get('is_premium')))
+//            ->when($request->has('status'), fn($query) => $query->where('status', $request->get('status')))
+//            ->when($request->has('sort'), fn($query) => $query->orderBy('name', $request->get('sort')))
             ->orderByDesc('created_at')
 //            ->paginate($request->get('per_page', 10));
             ->paginate();

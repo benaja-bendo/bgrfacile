@@ -10,6 +10,8 @@ Route::prefix('/')->group(function () {
 
     Route::get('/cours', [\App\Http\Controllers\CourseController::class, 'index'])->name('course.index');
 
+    Route::get('/exercices', [\App\Http\Controllers\CourseController::class, 'index'])->name('exercice.index');
+
     Route::get('/cours/{slug}-{id}', [\App\Http\Controllers\CourseController::class, 'showSlug'])
         ->where(['slug' => '[a-z0-9]+(?:-[a-z0-9]+)*', 'id' => '[0-9]+'])
         ->name('course.showSlug');
