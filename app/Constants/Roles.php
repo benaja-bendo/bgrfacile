@@ -25,6 +25,11 @@ class Roles
      */
     public const TEACHER = 'teacher';
 
+    /*
+     * Visiteur qui peut consulter les cours, les exercices et effectuer des recherches sur les établissements.
+     */
+    public const ANONYMOUS = 'anonymous';
+
 
     /* ----- ----- ---- ---- */
 
@@ -54,6 +59,7 @@ class Roles
         self::ADMIN,
         self::STUDENT,
         self::TEACHER,
+        self::ANONYMOUS,
         self::ADMIN_SCHOOL,
         self::PARENT_SCHOOL,
         self::STUDENT_SCHOOL,
