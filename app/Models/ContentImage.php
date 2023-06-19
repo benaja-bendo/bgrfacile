@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class ContentImage extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'contentable_id',
+        'contentable_type',
+        'content',
+    ];
+
+    public function contentable(): \Illuminate\Database\Eloquent\Relations\MorphTo
+    {
+        return $this->morphTo();
+    }
 }

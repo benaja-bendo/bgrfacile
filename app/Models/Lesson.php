@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Eloquent\Relations\MorphOneOrMany;
 
 class Lesson extends Model
 {
@@ -37,8 +39,19 @@ class Lesson extends Model
         return $this->belongsTo(Course::class);
     }
 
-    public function contentTexts(): MorphMany
+    public function contentTexts(): MorphOne
     {
-        return $this->morphMany(ContentText::class, 'contentable');
+        return $this->morphOne(ContentText::class, 'contentable');
     }
+
+    public function contentImages(): MorphMany
+    {
+        return $this->morphMany(ContentImage::class, 'contentable');
+    }
+
+    public function contentPdfs(): MorphOne
+    {
+        return $this->morphOne(ContentPdf::class, 'contentable');
+    }
+
 }

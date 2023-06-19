@@ -19,7 +19,7 @@ class ContentText extends Model
         'content' => 'array',
     ];
 
-    public function contentable()
+    public function contentable(): \Illuminate\Database\Eloquent\Relations\MorphTo
     {
         return $this->morphTo();
     }

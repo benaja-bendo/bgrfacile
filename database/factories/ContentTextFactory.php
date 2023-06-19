@@ -43,7 +43,7 @@ class ContentTextFactory extends Factory
 }', true);
         return [
             'content' => $content,
-            'contentable_id' => $this->faker->numberBetween(1, 10),
+            'contentable_id' => $this->faker->numberBetween(1, 100),
             'contentable_type' => $this->faker->randomElement(['App\Models\Lesson']),
         ];
     }

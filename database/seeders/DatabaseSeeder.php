@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             SubjectSeeder::class,
             SkillSeeder::class,
             ContentTextSeeder::class,
+            ContentImageSeeder::class,
+            ContentPdfSeeder::class,
         ]);
     }
 }

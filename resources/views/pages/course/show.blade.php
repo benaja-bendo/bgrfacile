@@ -54,7 +54,6 @@
         @php
             if(count($course->lessons) > 0){
                 if(request()->query('lesson') && filter_var(request()->query('lesson'), FILTER_VALIDATE_INT)){
-//                    dd($course->lessons()->where('id', request()->query('lesson'))->first());
                     $data = Illuminate\Support\Js::from($course->lessons->where('id', request()->query('lesson'))->first()->contentTexts->first()->content);
                 }
                 else{
