@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             ContentTextSeeder::class,
             ContentImageSeeder::class,
             ContentPdfSeeder::class,
+            SchoolSeeder::class,
         ]);
     }
 }

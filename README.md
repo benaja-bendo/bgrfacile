@@ -422,23 +422,23 @@ Elle posséde les fonctionnalités de base suivantes:
 
     -   id | int
     -   name | string
+    -   slug | string (unique) (default: name)
     -   email | string
     -   phone | string
     -   website | string
     -   level_min | string?
     -   level_max | string?
-    -   description | text?
     -   small_description | text?
-    -   status | enum (default: "draft") (draft, published, archived)
+    -   long_description | text?
+    -   status | enum (default: "draft") (draft, published, unpublished)
     -   address | string
     -   logo | string
     -   cover | string
-    -   subscription_id | int
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
     -   deleted_at | datetime?
 
-### Location
+### LocationSchool
 
     -   id | int
     -   school_id | int
