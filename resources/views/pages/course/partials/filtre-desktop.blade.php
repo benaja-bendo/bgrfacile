@@ -1,4 +1,4 @@
-<div class="md:overflow-y-auto md:h-[calc(100vh-5rem)]">{{-- md:h-[calc(100vh-10rem)]"> --}}
+<div class="overflow-y-auto md:h-[calc(100vh-5rem)]">{{-- md:h-[calc(100vh-10rem)]"> --}}
     <!-- filtres  -->
     <div class="mb-4 text-gray-800 flex justify-between items-center">
         <x-svg.filter class="w-6 h-6 text-gray-400 dark:text-gray-300"/>
@@ -16,7 +16,7 @@
         </form>
     </div>
     <!-- form -->
-    <form class="hidden md:block" id="form" action="{{ url()->current() }}" method="GET">
+    <form class="" id="form" action="{{ url()->current() }}" method="GET">
         <!-- button recharger -->
         <div class="mt-4 hidden" id="recharge_form">
             <button type="submit"
@@ -27,9 +27,9 @@
                 </span>
             </button>
         </div>
-        <!-- radio Fre -->
+        <!-- radio forfait -->
         <div class="mt-4">
-            <h3>Type de cours</h3>
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Type de cours</h3>
             <div class="mt-2">
                 <input type="radio" name="is_premium" id="price1" value="1" {{ request()->is_premium == '1'||request()->is_premium == null ? 'checked' : ''
                 }} />
@@ -45,35 +45,34 @@
         <!-- checkbox format -->
         <div class="mt-4">
             <div class="flex items-center justify-between">
-                <h3>Format du cours</h3>
+                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Format du cours</h3>
             </div>
             @foreach (App\Models\Course::TYPE_CONTENT as $type)
                 <div class="mt-2">
-                    <input type="checkbox" name="type_content[]" id="type_content{{ $type }}" value="{{ $type }}" {{
+                    <input type="checkbox" name="formats[]" id="formats{{ $type }}" value="{{ $type }}" {{
                     request()->type_content && in_array($type, request()->type_content) ? 'checked' : '' }} />
-                    <label for="type_content{{ $type }}">{{ $type }}</label>
+                    <label for="formats{{ $type }}">{{ $type }}</label>
                 </div>
             @endforeach
         </div>
-        <!-- select categorie -->
+        <!-- authors -->
         <div class="mt-4">
-            <h3 class="text-gray-800 dark:text-gray-200">Contenue proposé par:</h3>
-            <label for="categorie" class="sr-only">Catégorie</label>
-            <select name="categorie" id="categorie"
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Contenue proposé par:</h3>
+            <select name="author" id="author"
                     class="text-gray-800 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                <option {{ request()->categorie == 'all' ? 'selected' : '' }} class="text-gray-800" value="all">Peu
+                <option {{ request()->author == 'all' ? 'selected' : '' }} class="text-gray-800" value="all">Peu
                     importe
                 </option>
-                <option {{ request()->categorie == 'anonyme' ? 'selected' : '' }} class="text-gray-800"
+                <option {{ request()->author == 'anonymous' ? 'selected' : '' }} class="text-gray-800"
                         value="anonyme">des anonymes
                 </option>
-                <option {{ request()->categorie == 'etudiant' ? 'selected' : '' }} class="text-gray-800"
+                <option {{ request()->author == 'student' ? 'selected' : '' }} class="text-gray-800"
                         value="etudiant">des étudiants
                 </option>
-                <option {{ request()->categorie == 'professeur' ? 'selected' : '' }} class="text-gray-800"
+                <option {{ request()->author == 'teacher' ? 'selected' : '' }} class="text-gray-800"
                         value="professeur">des formateurs
                 </option>
-                <option {{ request()->categorie == 'ecole' ? 'selected' : '' }} class="text-gray-800" value="ecole">
+                <option {{ request()->author == 'school' ? 'selected' : '' }} class="text-gray-800" value="ecole">
                     une école
                 </option>
             </select>
@@ -81,14 +80,7 @@
         <!-- checkbox cycle -->
         <div class="mt-4">
             <div class="flex items-center justify-between">
-                <h3>Cycle</h3>
-                {{-- <button
-                    class="flex gap-0.5 items-center justify-center flex-nowrap text-xs text-red-400 dark:text-red-600">
-                    <x-svg.reload class="h-3 w-3 fill-current" />
-                    <span>
-                        recharger les niveaux
-                    </span>
-                </button> --}}
+                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Cycle</h3>
             </div>
             @forelse ($cycles as $cycle)
                 <div class="mt-2">
@@ -107,14 +99,7 @@
         <!-- checkbox niveau -->
         <div class="mt-4">
             <div class="flex items-center justify-between">
-                <h3>Niveau</h3>
-                {{-- <button
-                    class="flex gap-0.5 items-center justify-center flex-nowrap text-xs text-red-400 dark:text-red-600">
-                    <x-svg.reload class="h-3 w-3 fill-current" />
-                    <span>
-                        recharger les matières
-                    </span>
-                </button> --}}
+                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Niveau</h3>
             </div>
             @forelse ($levels as $level)
                 <div class="mt-2">
@@ -133,13 +118,13 @@
         <!-- checkbox matiere -->
         <div class="mt-4">
             <div class="flex items-center justify-between">
-                <h3>Matière</h3>
+                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Matière</h3>
             </div>
-            @forelse ($matieres as $matiere)
+            @forelse ($subjects as $subject)
                 <div class="mt-2">
-                    <input type="checkbox" name="matieres[]" id="matiere{{ $matiere->id }}" value="{{ $matiere->id }}" {{
-                    request()->matieres && in_array($matiere->id, request()->matieres) ? 'checked' : '' }} />
-                    <label for="matiere{{ $matiere->id }}">{{ $matiere->name }}</label>
+                    <input type="checkbox" name="matieres[]" id="matiere{{ $subject->id }}" value="{{ $subject->id }}" {{
+                    request()->matieres && in_array($subject->id, request()->matieres) ? 'checked' : '' }} />
+                    <label for="matiere{{ $subject->id }}">{{ $subject->name }}</label>
                 </div>
             @empty
                 <div class="mt-2">

@@ -18,7 +18,7 @@ class LessonFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(3),
-            'course_id' => $this->faker->numberBetween(1, 10),
+            'course_id' => $this->faker->numberBetween(1, 100),
             'slug' => $this->faker->slug,
             'description' => $this->faker->paragraph(3),
             'status' => $this->faker->randomElement(['draft','published', 'unpublished']),

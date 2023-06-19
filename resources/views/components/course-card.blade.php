@@ -1,4 +1,5 @@
 <div
+    {{--style="min-width: 250px; max-width: 250px; min-height: 350px; max-height: 350px;"--}}
     class="resource-card  relative bg-white dark:bg-gray-800 rounded-md p-4 flex flex-col gap-2 aspect-square border-2 border-transparent hover:border-blue-500 dark:hover:border-blue-500 shadow-md hover:shadow-lg transition duration-300 ease-in-out">
     <x-badge-premium-course :isPremium="$course->is_premium"/>
 
@@ -10,16 +11,16 @@
             {{ Illuminate\Support\Str::limit($course->description,100) }}
         </p>
         <div>
-            <p>Type: Cours</p>
+            <p>Type: <span class="font-semibold"> Cours</span></p>
             <p>Format: <span
                     class="text-xs text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-gray-700 rounded-md p-1">
                 PDF
             </span>
             </p>
-            <p>Cycle: Collège</p>
-            <p>Niveau: Niveau 2</p>
-            <p>Matière: Mathématiques</p>
-            <p>Contenu proposé par: <a href="" class="text-blue-600">{{ $course->users->first()->fullName }}</a>
+            <p>Cycle: <span class="font-semibold"> {{ $course->cycles->first()->name }}</span></p>
+            <p>Niveau: <span class="font-semibold">{{ $course->levels->first()->name }}</span></p>
+            <p>Matière: <span class="font-semibold">{{ $course->subjects->first()->name }}</span></p>
+            <p>Contenu proposé par: <a href="" class="text-blue-600 font-semibold">{{ $course->users->first()->fullName }}</a>
             </p>
             <p>
                 publié le: {{ $course->created_at->format('d/m/Y') }}

@@ -19,7 +19,7 @@
 }
 darkMode = JSON.parse(localStorage.getItem('darkMode'));
 $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
-<div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col" x-bind:class="{ 'dark': darkMode === true }">
+<div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col" x-bind:class="{ 'dark': darkMode === true,filter: false }">
     @include('layouts.navigation')
 
     <!-- Page Heading -->

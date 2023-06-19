@@ -13,6 +13,6 @@ class ContentTextSeeder extends Seeder
      */
     public function run(): void
     {
-        ContentText::factory()->count(10)->create();
+        ContentText::factory()->count(100)->create();
     }
 }

@@ -18,15 +18,16 @@ class CourseController extends Controller
             ->when($request->has('is_premium'), fn($query) => $query->where('is_premium', $request->get('is_premium')))
 //            ->when($request->has('status'), fn($query) => $query->where('status', $request->get('status')))
 //            ->when($request->has('sort'), fn($query) => $query->orderBy('name', $request->get('sort')))
+            ->where('status', 'published')
             ->orderByDesc('created_at')
 //            ->paginate($request->get('per_page', 10));
             ->paginate();
-
+//        dd($courses->first()->, $courses->lastItem(), $courses->total());
         return view('Pages.course.index', [
             'courses' => $courses,
             'cycles' => Cycle::query()->where('status', 'published')->get(),
             'levels' => Level::query()->where('status', 'published')->get(),
-            'matieres' => Subject::query()->where('status', 'published')->get(),
+            'subjects' => Subject::query()->where('status', 'published')->get(),
         ]);
     }
 
@@ -35,6 +36,7 @@ class CourseController extends Controller
         $course = Course::query()
             ->where('id', $id)
             ->where('slug', $slug)
+            ->where('status', 'published')
             ->firstOrFail();
         return view('Pages.course.show', [
             'course' => $course,

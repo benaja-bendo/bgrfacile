@@ -21,15 +21,21 @@
     </x-slot>
 
 
-
-
     <section style="width: 100%" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid gap-4 grid-cols-[1fr] md:grid-cols-[minmax(180px,300px),1fr] grid-rows-[auto,1fr] items-start">
             <div class="hidden md:block">
                 @include('pages.course.partials.details-show')
             </div>
             <div class="w-full h-full shadow-sm sm:rounded-lg bg-white dark:bg-gray-800 px-6 py-8">
-                <div id="editorjs" class="prose w-full"></div>
+                @if(count($course->lessons) > 0)
+                    <div id="editorjs" class="prose w-full"></div>
+                @else
+                    <div class="flex flex-col items-center justify-center">
+                        <x-svg.empty class="w-16 h-16 text-gray-400 dark:text-gray-600"/>
+                        <span class="text-gray-400 dark:text-gray-600">Aucune leçon pour le moment</span>
+                    </div>
+                @endif
+
             </div>
         </div>
     </section>
@@ -46,9 +52,24 @@
 
     <x-slot name="scripts">
         @php
-            $data =Illuminate\Support\Js::from(
-                                    $course->lessons->first()->contentTexts->first()->content
-                                    )
+            if(count($course->lessons) > 0){
+                if(request()->query('lesson') && filter_var(request()->query('lesson'), FILTER_VALIDATE_INT)){
+//                    dd($course->lessons()->where('id', request()->query('lesson'))->first());
+                    $data = Illuminate\Support\Js::from($course->lessons->where('id', request()->query('lesson'))->first()->contentTexts->first()->content);
+                }
+                else{
+                    $data = Illuminate\Support\Js::from($course->lessons->first()->contentTexts->first()->content);
+
+                }
+                }
+            else{
+                $data = Illuminate\Support\Js::from([]);
+                }
+            //                            foreach ($course->lessons as $lesson) {
+            //                                foreach ($lesson->contentTexts as $contentText) {
+            //                                    $data = Illuminate\Support\Js::from($contentText->content);
+            //                                }
+            //                            }
         @endphp
         <script>
             const showButton = document.getElementById('showButton');
