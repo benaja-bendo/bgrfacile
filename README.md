@@ -206,7 +206,25 @@ Elle posséde les fonctionnalités de base suivantes:
     -   password | string
     -   remember_token | string?
     -   created_at | datetime (default: now)
-    -   updated_at | datetime (default: now)
+    -   updated_at | datetime (default: now) 
+    
+| Key               | Type        | Description                                           | Exemple             |
+|-------------------|-------------|-------------------------------------------------------|---------------------|
+| id                | int         | Identifiant unique de la table                         | 1                   |
+| last_name         | string?     | Nom de famille                                        | "Doe"               |
+| first_name        | string      | Prénom                                                | "John"              |
+| email             | string      | Adresse e-mail unique                                 | "john@example.com"  |
+| slug              | string      | Slug unique généré à partir du prénom et du nom        | "john-doe"          |
+| birthday          | date?       | Date de naissance                                     | "1990-01-01"        |
+| number_phone      | string?     | Numéro de téléphone                                   | "123-456-7890"      |
+| gender            | string?     | Genre                                                 | "male"              |
+| profile_picture   | string?     | URL de la photo de profil                             | "https://example.com/profile.jpg" |
+| email_verified_at | datetime?   | Date et heure de vérification de l'e-mail              | "2023-06-19 10:00:00" |
+| password          | string      | Mot de passe                                          | "********"          |
+| remember_token    | string?     | Jeton de rappel                                       | "ABCD1234"          |
+| created_at        | datetime    | Date et heure de création de l'enregistrement          | "2023-06-19 10:00:00" |
+| updated_at        | datetime    | Date et heure de dernière mise à jour de l'enregistrement | "2023-06-19 10:00:00" |
+
 
 ### Role
 
