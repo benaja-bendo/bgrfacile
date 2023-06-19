@@ -233,6 +233,14 @@ Elle posséde les fonctionnalités de base suivantes:
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
 
+| Key        | Type      | Description                                           | Exemple             |
+|------------|-----------|-------------------------------------------------------|---------------------|
+| id         | int       | Identifiant unique de la table                         | 1                   |
+| name       | string    | Nom                                                   | "John Doe"          |
+| created_at | datetime  | Date et heure de création de l'enregistrement          | "2023-06-19 10:00:00" |
+| updated_at | datetime  | Date et heure de dernière mise à jour de l'enregistrement | "2023-06-19 10:00:00" |
+
+
 ### Address
 
     -   id | int
@@ -244,6 +252,19 @@ Elle posséde les fonctionnalités de base suivantes:
     -   addressable_type | string  // default: "N/A"
     -   created_at | datetime (default: now)
     -   updated_at | datetime (default: now)
+
+| Key               | Type      | Description                                           | Exemple             |
+|-------------------|-----------|-------------------------------------------------------|---------------------|
+| id                | int       | Identifiant unique de la table                         | 1                   |
+| country           | string    | Pays                                                  | "Congo-Kinshasa"    |
+| city              | string    | Ville                                                 | "Kinshasa"          |
+| street            | string    | Rue                                                   | "N/A"               |
+| zip_code          | string    | Code postal                                           | "N/A"               |
+| addressable_id    | int       | Identifiant de l'élément associé à cette adresse       | 1                   |
+| addressable_type  | string    | Type d'élément associé à cette adresse                | "User"              |
+| created_at        | datetime  | Date et heure de création de l'enregistrement          | "2023-06-19 10:00:00" |
+| updated_at        | datetime  | Date et heure de dernière mise à jour de l'enregistrement | "2023-06-19 10:00:00" |
+
 
 ### Course
 
