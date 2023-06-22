@@ -1,22 +1,68 @@
 <x-app-layout>
-    ecole
-    <div class="w-screen h-screen flex items-center justify-center">
-        <div onclick="toggleSlideover()" class="cursor-pointer px-5 py-2 text-sm border text-gray-500 hover:bg-gray-100 rounded border-gray-300">Toggle Slide-over</div>
-        <div id="slideover-container" class="w-full h-full fixed inset-0 invisible">
-            <div onclick="toggleSlideover()" id="slideover-bg" class="w-full h-full duration-500 ease-out transition-all inset-0 absolute bg-gray-900 opacity-0"></div>
-            <div onclick="toggleSlideover()" id="slideover" class="w-96 bg-white h-full absolute right-0 duration-300 ease-out transition-all translate-x-full">
-                <div class="absolute cursor-pointer text-gray-600 top-0 w-8 h-8 flex items-center justify-center right-0 mt-5 mr-5">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        function toggleSlideover(){
-            document.getElementById('slideover-container').classList.toggle('invisible');
-            document.getElementById('slideover-bg').classList.toggle('opacity-0');
-            document.getElementById('slideover-bg').classList.toggle('opacity-50');
-            document.getElementById('slideover').classList.toggle('translate-x-full');
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
         }
+    </style>
+    <h1>Ajout de marqueurs personnalisés avec Google Maps API</h1>
+    <div id="map"></div>
+
+    <script>
+        // Fonction d'initialisation de la carte
+        function initMap() {
+            // Coordonnées du centre de la carte
+            var center = { lat: 48.8566, lng: 2.3522 };
+
+            // Options de la carte
+            var mapOptions = {
+                zoom: 12,
+                center: center
+            };
+
+            // Création de la carte
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            // Tableau des marqueurs avec leurs coordonnées et informations
+            var markers = [
+                {
+                    position: { lat: 48.8566, lng: 2.3522 },
+                    title: "Paris",
+                    description: "Capitale de la France"
+                },
+                {
+                    position: { lat: 51.5074, lng: -0.1278 },
+                    title: "Londres",
+                    description: "Capitale du Royaume-Uni"
+                },
+                {
+                    position: { lat: 40.7128, lng: -74.0060 },
+                    title: "New York",
+                    description: "Ville aux gratte-ciel"
+                }
+            ];
+
+            // Ajout des marqueurs sur la carte
+            markers.forEach(function(markerInfo) {
+                var marker = new google.maps.Marker({
+                    position: markerInfo.position,
+                    map: map,
+                    title: markerInfo.title
+                });
+
+                // Ajout d'une info-bulle au marqueur
+                var infoWindow = new google.maps.InfoWindow({
+                    content: markerInfo.description
+                });
+
+                // Gestionnaire d'événement pour afficher l'info-bulle au clic sur le marqueur
+                marker.addListener('click', function() {
+                    infoWindow.open(map, marker);
+                });
+            });
+        }
+    </script>
+    <script async defer src="
+    https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap">
     </script>
 </x-app-layout>

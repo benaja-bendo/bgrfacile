@@ -18,6 +18,8 @@ Route::prefix('/')->group(function () {
 
     Route::get('/ecole', [\App\Http\Controllers\SchoolController::class, 'index'])->name('school.index');
 
+    Route::get('/ecole/show', [\App\Http\Controllers\SchoolController::class, 'show'])->name('school.show');
+
     Route::get('/formateur', [\App\Http\Controllers\TrainerController::class, 'index'])->name('trainer.index');
 
     Route::get('/about', \App\Http\Controllers\AboutController::class)->name('about');

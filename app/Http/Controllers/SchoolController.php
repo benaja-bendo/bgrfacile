@@ -11,4 +11,9 @@ class SchoolController extends Controller
     {
         return view('Pages.school');
     }
+
+    public function show(): View
+    {
+        return view('Pages.school.show');
+    }
 }
